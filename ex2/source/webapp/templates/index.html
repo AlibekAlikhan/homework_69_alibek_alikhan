@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container" id="container">
+    <input id="id_input_one">
+<input id="id_input_two">
+<button id="plus">Плюс</button>
+<button id="minus">Минус</button>
+<button id="multiply">Умножить</button>
+<button id="divide">Разделить</button>
+<p id="tegP"></p>
+</div>
+<script>
+    const number_one = document.getElementById("id_input_one")
+    const number_two = document.getElementById("id_input_two")
+    const plus_id = document.getElementById("plus")
+    const minus_id = document.getElementById("minus")
+    const multiply_id = document.getElementById("multiply")
+    const divide_id = document.getElementById("divide")
+    const tegP = document.getElementById("tegP")
+
+ 
+    
+    let plus = function(){
+        one = number_one.value
+        two = number_two.value
+        let xhr = new XMLHttpRequest(); 
+        xhr.onload = function(){
+            let data = JSON.parse(this.response);
+            console.log(data)
+            tegP.innerText = `answer = ${data.answer}`
+            };
+        xhr.open('POST', "http://127.0.0.1:8000/add/");
+        send = {
+            "A": one,
+            "B": two
+        }
+        xhr.send(JSON.stringify(send))
+    }
+
+    let minus = function(){
+        one = number_one.value
+        two = number_two.value
+        let xhr = new XMLHttpRequest(); 
+        xhr.onload = function(){
+            let data = JSON.parse(this.response);
+            console.log(data)
+            tegP.innerText = `answer = ${data.answer}`
+            };
+        xhr.open('POST', "http://127.0.0.1:8000/subtract/");
+        send = {
+            "A": one,
+            "B": two
+        }
+        xhr.send(JSON.stringify(send))
+    }
+
+    let multiply = function(){
+        one = number_one.value
+        two = number_two.value
+        let xhr = new XMLHttpRequest(); 
+        xhr.onload = function(){
+            let data = JSON.parse(this.response);
+            console.log(data)
+            tegP.innerText = `answer = ${data.answer}`
+            };
+        xhr.open('POST', "http://127.0.0.1:8000/multiply/");
+        send = {
+            "A": one,
+            "B": two
+        }
+        xhr.send(JSON.stringify(send))
+    }
+
+    let divide = function(){
+        one = number_one.value
+        two = number_two.value
+        let xhr = new XMLHttpRequest(); 
+        xhr.onload = function(){
+            let data = JSON.parse(this.response);
+            console.log(data)
+            tegP.innerText = `answer = ${data.answer}`
+            };
+        xhr.open('POST', "http://127.0.0.1:8000/divide/");
+        send = {
+            "A": one,
+            "B": two
+        }
+        xhr.send(JSON.stringify(send))
+    }
+
+    plus_id.addEventListener('click', plus)
+    divide_id.addEventListener('click', divide)
+    multiply_id.addEventListener('click', multiply)
+    minus_id.addEventListener('click', minus)
+
+</script>
+</body>
+</html>
