@@ -33,6 +33,12 @@
             let data = JSON.parse(this.response);
             console.log(data)
             tegP.innerText = `answer = ${data.answer}`
+            if(this.status === 201){
+                tegP.style.color = 'green'
+            }
+            else{
+                tegP.style.color = 'red'
+            }
             };
         xhr.open('POST', "http://127.0.0.1:8000/add/");
         send = {

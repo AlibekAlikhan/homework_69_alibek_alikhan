@@ -37,8 +37,7 @@ def add(request, *args, **kwargs):
             print(response.__dict__)
         except Exception:
             response_data = {"error": "Division by zero!"}
-            response = JsonResponse(response_data)
-            response.status_code = 400
+            response = JsonResponse(response_data, status=400)
         return response
 
 
@@ -63,7 +62,7 @@ def subtract(request, *args, **kwargs):
             response.status_code = 201
         except Exception:
             response_data = {"error": "Division by zero!"}
-            response = JsonResponse(response_data)
+            response = JsonResponse(response_data, status=400)
             response.status_code = 400
         return response
 
@@ -89,8 +88,7 @@ def multiply(request, *args, **kwargs):
             response.status_code = 201
         except Exception:
             response_data = {"error": "Division by zero!"}
-            response = JsonResponse(response_data)
-            response.status_code = 400
+            response = JsonResponse(response_data, status=400)
         return response
 
 
@@ -115,6 +113,5 @@ def divide(request, *args, **kwargs):
             response.status_code = 201
         except Exception:
             response_data = {"error": "Division by zero!"}
-            response = JsonResponse(response_data)
-            response.status_code = 400
+            response = JsonResponse(response_data, status=400)
         return response
